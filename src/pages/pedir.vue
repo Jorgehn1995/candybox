@@ -12,13 +12,13 @@
         <v-spacer></v-spacer>
 
         <div class="d-none d-md-block">
-          <v-btn
+           <v-btn
             class="mx-1"
             color="white"
             outlined
-            @click="$vuetify.goTo('#ofrecemos')"
+            to="/revisar"
           >
-            Rastrear Mi Pedido
+            Mis Pedidos
             <v-icon right>mdi-truck-delivery-outline</v-icon>
           </v-btn>
         </div>

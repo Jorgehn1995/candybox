@@ -16,10 +16,10 @@
             class="mx-1"
             color="white"
             outlined
-            @click="$vuetify.goTo('#ofrecemos')"
+            to="/"
           >
-            Rastrear Mi Pedido
-            <v-icon right>mdi-truck-delivery-outline</v-icon>
+            Inicio
+            <v-icon right>mdi-home-outline</v-icon>
           </v-btn>
         </div>
       </v-container>
