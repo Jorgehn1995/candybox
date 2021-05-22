@@ -10,7 +10,7 @@ export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: "%s :: CandyBox",
-    title: "INEBCO",
+    title: "Candy Box",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -30,9 +30,7 @@ export default {
       ...config.icons.map(href => ({ rel: "stylesheet", href }))
     ]
   },
-  env: {
-    FIRE_ENV: process.env.FIRE_ENV
-  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ["~/assets/scss/theme.scss"],
 
@@ -102,6 +100,7 @@ export default {
           storageBucket: "candybox-c3e3d.appspot.com",
           messagingSenderId: "598213657165",
           appId: "1:598213657165:web:f140a764a6d5ff813fd204",
+          databaseURL: "https://candybox-c3e3d-default-rtdb.firebaseio.com",
           measurementId: "G-T5T33NW8G3"
         },
         services: {
@@ -114,10 +113,6 @@ export default {
           performance: true,
           analytics: true,
           remoteConfig: true
-        },
-        database: {
-          emulatorPort: 9000,
-          emulatorHost: "localhost"
         }
       }
     ]

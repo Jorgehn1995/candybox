@@ -1,25 +1,5 @@
 <template>
   <v-app>
-    <v-app-bar flat height="80" fixed hide-on-scroll  color="transparent">
-      <v-container class="py-0 px-0 px-sm-2 fill-height">
-        <router-link
-          to="/"
-          class="d-flex align-center text-decoration-none mr-2"
-        >
-          <img :src="require('@/assets/images/logo.png')" height="50" />
-        </router-link>
-
-        <v-spacer></v-spacer>
-
-        <div class="d-none d-md-block">
-          <v-btn class="mx-1" color="white" outlined @click="$vuetify.goTo('#ofrecemos')">
-            Rastrear Mi Pedido
-            <v-icon right>mdi-truck-delivery-outline</v-icon>
-          </v-btn>
-        </div>
-      </v-container>
-    </v-app-bar>
-
     <v-main>
       <nuxt />
 

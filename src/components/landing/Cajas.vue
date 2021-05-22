@@ -62,7 +62,7 @@
             :dark="plan.featured"
             :outlined="!plan.featured"
             :color="plan.featured ? 'primary' : ''"
-            to="/auth/signup"
+            :to="'/pedir?caja='+plan.title"
           >
             Pedir
           </v-btn>
