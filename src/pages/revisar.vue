@@ -12,12 +12,7 @@
         <v-spacer></v-spacer>
 
         <div class="d-none d-md-block">
-          <v-btn
-            class="mx-1"
-            color="white"
-            outlined
-            to="/"
-          >
+          <v-btn class="mx-1" color="white" outlined to="/">
             Inicio
             <v-icon right>mdi-home-outline</v-icon>
           </v-btn>
@@ -26,76 +21,16 @@
     </v-app-bar>
     <v-container id="pricing" class="pt-0 pb-10">
       <v-row class="mt-5">
-        <v-col
-          v-for="(plan, i) in pedido"
-          :key="i"
-          cols="12"
-          sm="6"
-          md="5"
-          lg="4"
-        >
-          <v-card class="text-body-1 pa-4 rounded-xl" outlined elevation="3">
-            <div class="d-flex justify-space-between">
-              <div class="mr-2">
-                <div class="align-center">
-                  <div class="text-h4 font-weight-black">{{ plan.title }}</div>
-                  <br />
-                  <div v-if="plan.featured" class="">
-                    <v-chip dark small color="primary" class="font-weight-black"
-                      >Popular</v-chip
-                    >
-                  </div>
-                </div>
-                <div class="mt-1">{{ plan.description }}</div>
-              </div>
-              <div class="text-right">
-                <div class="d-flex align-center">
-                  <div class="text-h5 mr-1">Q</div>
-                  <div class="text-h3 text-number font-weight-bold">
-                    {{ plan.price }}
-                  </div>
-                </div>
-                <div class="justify-end overline">/caja</div>
-              </div>
-            </div>
-
-            <v-divider class="my-4"></v-divider>
-
-            <div class="text-h6">
-              <div
-                v-for="(feat, j) in plan.features"
-                :key="j"
-                class="d-flex align-center justify-space-between my-1"
-              >
-                <div>
-                  <span v-if="feat.value" class="font-weight-black mr-1">{{
-                    feat.value
-                  }}</span>
-                  <span class="text-truncate font-weight-regular">{{
-                    feat.label
-                  }}</span>
-                </div>
-                <v-icon color="primary">mdi-check</v-icon>
-              </div>
-            </div>
-            <v-divider class="my-4"></v-divider>
-            <v-btn x-large block rounded @click="$router.go(-1)">
-              <v-icon left>mdi-chevron-left</v-icon>
-              Cambiar Caja
-            </v-btn>
-          </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="7" lg="8">
+        <v-col cols="12" sm="6" offset-sm="3">
           <v-responsive max-width="1200" class="mx-auto text-center mb-2">
-            <h2 class="text-h3 mb-2">Finaliza tu pedido</h2>
+            <h2 class="text-h3 mb-2">Mis Pedidos</h2>
             <div class="text-h6 text-lg-h5">
-              Ingresa la información solicitada para finalizar iniciar tu
-              pedido.
+              Ingresa el número telefonico con el que realizaste tu pedido
             </div>
           </v-responsive>
           <v-form lazy-validation ref="form">
             <v-row dense>
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="12" class="pb-0">
                 <v-text-field
                   filled
                   v-model="datos.telefono"
@@ -103,49 +38,39 @@
                   :rules="[rules.general.requerido, rules.general.min8]"
                 ></v-text-field>
               </v-col>
-              <v-col cols="12" md="6">
-                <v-text-field
-                  filled
-                  v-model="datos.nombre"
-                  label="Nombre"
-                  :rules="[rules.general.requerido]"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6">
-                <v-textarea
-                  filled
-                  rows="2"
-                  v-model="datos.direccion"
-                  label="Dirección"
-                  :rules="[rules.general.requerido]"
-                ></v-textarea>
-              </v-col>
-              <v-col cols="12" md="6">
-                <v-textarea
-                  filled
-                  rows="2"
-                  v-model="datos.instrucciones"
-                  label="Indicaciones Especiales"
-                ></v-textarea>
-              </v-col>
-              <v-col cols="12">
-                <p>
-                  Presiona continuar para revisar la información de tu pedido
-                </p>
-              </v-col>
-              <v-col cols="12">
+              <v-col cols="12" class="pt-0">
                 <div class="text-right">
                   <v-btn large color="blue" dark @click="realizarPedido">
-                    Continuar
+                    Revisar
                     <v-icon>mdi-chevron-right</v-icon>
                   </v-btn>
                 </div>
               </v-col>
+              <v-col cols="12">
+                <v-card>
+                  <v-card-title> Pedido #1 </v-card-title>
+                  <v-card-text>
+                    <v-timeline align-top dense>
+                      <v-timeline-item color="green lighten-4" small>
+                        <v-row class="pt-1">
+                          <v-col cols="3">
+                            <strong>5pm</strong>
+                          </v-col>
+                          <v-col>
+                            <strong>Ingreso del Pedido</strong>
+                            <div class="caption">Se esta Confirmando el pedido</div>
+                          </v-col>
+                        </v-row>
+                      </v-timeline-item>
+
+
+
+                    </v-timeline>
+                  </v-card-text>
+                </v-card>
+              </v-col>
             </v-row>
           </v-form>
-        </v-col>
-        <v-col cols="12">
-          <p>* Reparto a domicilio solo en el casco urbano de jutiapa <br /></p>
         </v-col>
       </v-row>
     </v-container>
@@ -242,9 +167,7 @@ export default {
     Mapa,
     Cajas,
   },
-  mounted() {
-
-  },
+  mounted() {},
   data: () => ({
     pedido: [],
     plans: [

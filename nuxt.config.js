@@ -55,7 +55,7 @@ export default {
   // components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  buildModules: [
+  buildModules: [ '@nuxtjs/moment',
     // https://go.nuxtjs.dev/vuetify
     [
       "@nuxtjs/vuetify",
@@ -85,7 +85,12 @@ export default {
       }
     ]
   ],
-
+  moment: {
+    moment: {
+      defaultLocale: 'es',
+      locales: ['es']
+    }
+  },
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     "@nuxtjs/google-gtag",

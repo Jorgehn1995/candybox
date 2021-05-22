@@ -12,12 +12,7 @@
         <v-spacer></v-spacer>
 
         <div class="d-none d-md-block">
-           <v-btn
-            class="mx-1"
-            color="white"
-            outlined
-            to="/revisar"
-          >
+          <v-btn class="mx-1" color="white" outlined to="/revisar">
             Mis Pedidos
             <v-icon right>mdi-truck-delivery-outline</v-icon>
           </v-btn>
@@ -249,7 +244,6 @@ export default {
     Cajas,
   },
   mounted() {
-
     let caja = this.$route.query.caja;
     if (!caja) {
       this.$router.go(-1);
@@ -263,7 +257,6 @@ export default {
     if (this.pedido.length != 1) {
       this.$router.go(-1);
     }
-
   },
   data: () => ({
     isLoading: false,
@@ -355,6 +348,18 @@ export default {
       },
     ],
     datos: {
+      ingresado: {
+        estado: false,
+        hora: "",
+      },
+      confirmado: {
+        estado: false,
+        hora: "",
+      },
+      entregado: {
+        estado: false,
+        hora: "",
+      },
       telefono: "",
       nombre: "",
       direccion: "",
@@ -371,8 +376,12 @@ export default {
     },
     async confirmarPedido() {
       this.isloading = true;
+      this.datos.pedido = this.pedido[0];
+      this.datos.ingresado.estado = true;
+      this.datos.ingresado.hora = this.$moment().format("h:mma dddd DD MMM");
       try {
-        await this.$fire.database.ref("pedidos").push(this.datos);
+        let dato = await this.$fire.database.ref("pedidos").push(this.datos);
+        console.log(dato);
       } catch (e) {
         console.log(e);
       }

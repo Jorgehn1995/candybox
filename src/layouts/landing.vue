@@ -10,24 +10,20 @@
               <div class="text-h6 text-lg-h5 font-weight-bold">Navegacion</div>
               <div style="width: 80px; height: 2px" class="mb-5 mt-1 primary" />
               <div class="d-flex flex-wrap">
-                <div
-                  v-for="(link, i) in links"
-                  :key="i"
-                  class="w-half body-1 mb-1"
-                >
+                <div class="w-half body-1 mb-1">
                   <router-link
-                    v-if="link.to"
                     class="text-decoration-none text--primary"
-                    :to="link.to"
-                    >{{ link.label }}</router-link
+                    to="/"
                   >
-                  <a
-                    v-else
+                    Inicio
+                  </router-link>
+                  <br>
+                  <router-link
                     class="text-decoration-none text--primary"
-                    :href="link.href"
-                    :target="link.target || 'blank'"
-                    >{{ link.label }}</a
+                    to="/revisar"
                   >
+                    Revisar pedido
+                  </router-link>
                 </div>
               </div>
             </v-col>
@@ -38,14 +34,14 @@
                 <v-icon color="primary lighten-1" class="mr-2"
                   >mdi-map-marker-outline</v-icon
                 >
-                Barrio el Centro, San Luis Jilotepeque, Jalapa 21003 Guatemala
+                Barrio el centro Jutiapa, Jutiapa. Guatemala 01001
               </div>
               <div class="d-flex mb-2">
                 <v-icon color="primary lighten-1" class="mr-2"
                   >mdi-phone-outline</v-icon
                 >
                 <a href="#" class="text-decoration-none text--primary"
-                  >+502 7923 7614</a
+                  >+502 1234 56789</a
                 >
               </div>
               <div class="d-flex mb-2">
@@ -53,53 +49,30 @@
                   >mdi-email-outline</v-icon
                 >
                 <a href="#" class="text-decoration-none text--primary"
-                  >imebsanluisjilotepeque@gmail.com</a
+                  >contacto@candybox.com.gt</a
                 >
               </div>
             </v-col>
             <v-col cols="12" md="4">
-              <div class="text-h6 text-lg-h5 font-weight-bold">Noticias</div>
+              <div class="text-h6 text-lg-h5 font-weight-bold">Escribemos</div>
               <div style="width: 80px; height: 2px" class="mb-5 mt-1 primary" />
               <div class="d-flex flex-column flex-lg-row w-full">
                 <v-text-field
                   outlined
                   solo
-                  label="Your email"
+                  label="Tu Mensaje"
                   dense
                   height="44"
                   class="mr-lg-2"
                 ></v-text-field>
-                <v-btn large color="primary">Suscribete</v-btn>
-              </div>
-              <div class="text-center text-md-right mt-4 mt-lg-2">
-                Conectate
-                <v-btn
-                  fab
-                  small
-                  color="primary"
-                  target="_blank"
-                  href="https://www.facebook.com/inebcosl"
-                  class="ml-2"
-                >
-                  <v-icon>mdi-facebook</v-icon>
-                </v-btn>
-                <v-btn
-                  fab
-                  small
-                  color="primary"
-                  target="_blank"
-                  href="https://www.instagram.com/inebcosl"
-                  class="ml-2"
-                >
-                  <v-icon>mdi-instagram</v-icon>
-                </v-btn>
+                <v-btn large color="primary">Enviar Mensaje</v-btn>
               </div>
             </v-col>
           </v-row>
           <v-divider class="my-3"></v-divider>
           <div class="text-center caption">
-            © INEBCO 2021, Todos los derechos reservados | Created by Jorge
-            Hernández
+            © CANDYBOX JUTIAPA 2021, Todos los derechos reservados | Creado como
+            Proyecto para UMG
           </div>
         </v-container>
       </v-footer>
