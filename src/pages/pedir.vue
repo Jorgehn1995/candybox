@@ -360,6 +360,7 @@ export default {
         estado: false,
         hora: "",
       },
+      cancelado:false,
       telefono: "",
       nombre: "",
       direccion: "",
@@ -380,13 +381,13 @@ export default {
       this.datos.ingresado.estado = true;
       this.datos.ingresado.hora = this.$moment().format("h:mma dddd DD MMM");
       try {
-        let dato = await this.$fire.database.ref("pedidos").push(this.datos);
-        console.log(dato);
+        await this.$fire.database.ref("pedidos").push(this.datos);
+
       } catch (e) {
         console.log(e);
       }
       this.isloading = false;
-      this.$router.push({ path: "/revisar" });
+      this.$router.push({ path: "/revisar?telefono="+this.datos.telefono });
     },
   },
   computed: {

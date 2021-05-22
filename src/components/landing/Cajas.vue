@@ -9,7 +9,7 @@
     </v-responsive>
 
     <v-row class="mt-5">
-      <v-col v-for="(plan, i) in plans" :key="i" cols="12" lg="4">
+      <v-col v-for="(plan, i) in plans" :key="i" cols="12" sm="6" md="4" lg="4">
         <v-card class="text-body-1 pa-4 rounded-xl" outlined elevation="3">
           <div class="d-flex justify-space-between">
             <div class="mr-2">

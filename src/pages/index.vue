@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar flat height="80" fixed hide-on-scroll color="transparent">
+    <v-app-bar flat height="80" style="position:absolute; z-index:2;" color="transparent" >
       <v-container class="py-0 px-0 px-sm-2 fill-height">
         <router-link
           to="/"
