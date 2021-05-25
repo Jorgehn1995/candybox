@@ -4,9 +4,12 @@ const { locale, availableLocales, fallbackLocale } = config.locales;
 const { gaId } = config.analytics;
 
 export default {
+
   // ssr: false,
   // target: 'static',
   srcDir: "src/",
+  buildDir: 'functions/.nuxt',
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: "%s :: CandyBox",
@@ -130,5 +133,7 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {}
+  build: {
+    extractCSS: true,
+  }
 };
