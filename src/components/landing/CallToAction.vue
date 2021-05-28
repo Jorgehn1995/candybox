@@ -10,9 +10,10 @@
         </div>
         <div class="mt-4 mt-lg-0">
           <v-btn
+
             x-large
             class="my-1 mx-sm-2 w-full w-sm-auto"
-            href="https://www.facebook.com/inebcosl"
+            href="https://www.facebook.com/CandyBox-Jutiapa-101008892203777"
             target="_blank"
             color="primary"
           >

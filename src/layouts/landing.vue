@@ -17,7 +17,7 @@
                   >
                     Inicio
                   </router-link>
-                  <br>
+                  <br />
                   <router-link
                     class="text-decoration-none text--primary"
                     to="/revisar"
@@ -77,6 +77,11 @@
         </v-container>
       </v-footer>
     </v-main>
+    <div id="fb-root"></div>
+
+    <!-- Your plugin de chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+
     <v-dialog v-model="dialog" width="400">
       <v-card>
         <v-card-title> Lo sentimos </v-card-title>
@@ -96,6 +101,27 @@
 import config from "@/configs";
 
 export default {
+  mounted() {
+    var chatbox = document.getElementById("fb-customer-chat");
+    chatbox.setAttribute("page_id", "101008892203777");
+    chatbox.setAttribute("attribution", "biz_inbox");
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: "v10.0",
+      });
+    };
+
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+  },
   data() {
     return {
       config,
@@ -131,3 +157,4 @@ export default {
   },
 };
 </script>
+
