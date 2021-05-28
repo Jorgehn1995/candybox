@@ -21,7 +21,7 @@
     </v-app-bar>
     <v-container id="pricing" class="pt-0 pb-10">
       <v-row class="mt-5">
-        <v-col cols="12" sm="8" md="6"  offset-sm="2" offset-md="3">
+        <v-col cols="12" sm="8" md="6" offset-sm="2" offset-md="3">
           <v-responsive max-width="1200" class="mx-auto text-center mb-2">
             <h2 class="text-h3 mb-2">Mis Pedidos</h2>
             <div class="text-h6 text-lg-h5">
@@ -54,7 +54,7 @@
                       <v-timeline-item color="green lighten-4" small>
                         <v-row class="pt-1">
                           <v-col cols="6">
-                            <strong>{{pedido.ingresado.hora}}</strong>
+                            <strong >{{ pedido.ingresado.hora }}</strong>
                           </v-col>
                           <v-col>
                             <strong>Ingreso del Pedido</strong>
@@ -65,7 +65,6 @@
                         </v-row>
                       </v-timeline-item>
                     </v-timeline>
-
                   </v-card-text>
                 </v-card>
               </v-col>
@@ -102,26 +101,29 @@ export default {
     }
   },
   data: () => ({
-    pedidos: [],
+    pedidos: {},
     telefono: "",
     checkout: false,
     rules: rules,
   }),
   methods: {
     async buscarPedidos() {
-      try {
-        this.pedidos=[];
-        let pedidos = this.$fire.database.ref("pedidos");
-        pedidos
-          .orderByChild("telefono")
-          .equalTo(this.telefono)
-          .on("value", (snapshot) => {
-            let key = Object.keys(snapshot.val());
-            let dato = snapshot.val();
-            this.pedidos.push(dato[key]);
-          });
-      } catch (e) {
-        console.log(e);
+      if (this.$refs.form.validate()) {
+        try {
+          this.pedidos = [];
+          let pedidos = this.$fire.database.ref("pedidos");
+          pedidos
+            .orderByChild("telefono")
+            .equalTo(this.telefono)
+            .on("value", (snapshot) => {
+              //let key = Object.keys(snapshot.val());
+              let dato = snapshot.val();
+              //console.log(dato);
+              this.pedidos=dato;
+            });
+        } catch (e) {
+          console.log(e);
+        }
       }
     },
   },
