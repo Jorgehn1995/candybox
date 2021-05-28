@@ -55,9 +55,10 @@
             </v-col>
             <v-col cols="12" md="4">
               <div class="text-h6 text-lg-h5 font-weight-bold">Escribemos</div>
-              <div style="width: 80px; height: 2px" class="mb-5 mt-1 primary" />
-              <div class="d-flex flex-column flex-lg-row w-full">
+              <div style="width: 80px; height: 2px" class="mb-5 mt-1 primary"  />
+              <div class="d-flex flex-column flex-lg-row w-full" >
                 <v-text-field
+                v-if="false"
                   outlined
                   solo
                   label="Tu Mensaje"
@@ -65,7 +66,7 @@
                   height="44"
                   class="mr-lg-2"
                 ></v-text-field>
-                <v-btn large color="primary">Enviar Mensaje</v-btn>
+                <v-btn large href="http://m.me/101008892203777" target="_blank" color="primary">Enviar Mensaje</v-btn>
               </div>
             </v-col>
           </v-row>
