@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-app-bar flat height="80" style="position:absolute; z-index:2;" color="transparent" >
+    <v-app-bar
+      flat
+      height="80"
+      style="position: absolute; z-index: 2"
+      color="transparent"
+    >
       <v-container class="py-0 px-0 px-sm-2 fill-height">
         <router-link
           to="/"
@@ -12,12 +17,7 @@
         <v-spacer></v-spacer>
 
         <div class="d-none d-md-block">
-          <v-btn
-            class="mx-1"
-            color="white"
-            outlined
-            to="/revisar"
-          >
+          <v-btn class="mx-1" color="light-blue" dark rounded to="/revisar">
             Mis Pedidos
             <v-icon right>mdi-truck-delivery-outline</v-icon>
           </v-btn>
@@ -27,29 +27,29 @@
     <v-sheet>
       <div class="imgbox">
         <v-img
-          :src="require('@/static/images/fondo.jpg')"
+          :src="require('@/assets/images/fondo.jpg')"
+          gradient="to top right, rgba(0,0,0,.1), rgba(0,0,0,.1)"
           class="center-fit"
-          gradient="to top right, rgba(0,0,0,.6), rgba(0,0,0,.6)"
         >
           <v-container class="py-6 pt-lg-15 text-center">
-            <h1
-              class="text-h4 text-sm-h3 text-md-h2 text-lg-h1 mt-5 white--text"
-            >
-              <strong>Candy</strong>Box
-            </h1>
+            <v-img
+              contain
+              :src="require('@/assets/images/logo2.png')"
+              height="250"
+            />
             <h2
-              class="text-h6 text-sm-h5 mt-4 w-full w-md-8-12 w-xl-half mx-auto white--text"
+              class="text-h6 text-sm-h5 mt-4 w-full w-md-8-12 w-xl-half mx-auto"
             >
-              <span
-                >Servicio a dominicio de cajas llenas de dulces, en el municipio
-                de Jutiapa</span
-              >
+              <span>
+                Servicio a dominicio de cajas llenas de dulces, en el municipio
+                de Jutiapa
+              </span>
             </h2>
             <div class="mt-8">
               <v-btn
                 x-large
                 rounded
-                color="primary "
+                color="green "
                 dark
                 elevation="2"
                 @click="$vuetify.goTo('#cajas')"
